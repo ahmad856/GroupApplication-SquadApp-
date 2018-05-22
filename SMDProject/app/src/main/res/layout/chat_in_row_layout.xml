@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/dpOnMessage"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+
+
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/com_facebook_button_icon_blue" />
+
+    <TextView
+        android:id="@+id/nicknameOnMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="8dp"
+        android:text="Name"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintStart_toEndOf="@+id/dpOnMessage"
+        app:layout_constraintTop_toTopOf="@+id/dpOnMessage" />
+
+    <TextView
+        android:id="@+id/timestampOnMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="8dp"
+        android:text="timestamp"
+        app:layout_constraintStart_toStartOf="@+id/textOnMessage"
+        app:layout_constraintTop_toBottomOf="@+id/textOnMessage" />
+
+    <TextView
+        android:id="@+id/textOnMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/incoming_bubble"
+        android:fontFamily="sans-serif"
+        android:paddingBottom="4dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:text="This is a message. This is a message. This is a message."
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toStartOf="@+id/tts"
+        app:layout_constraintStart_toStartOf="@+id/nicknameOnMessage"
+        app:layout_constraintTop_toBottomOf="@+id/nicknameOnMessage" />
+
+    <Button
+        android:id="@+id/tts"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/sound"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/textOnMessage"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

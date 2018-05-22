@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <TextView
+                android:id="@+id/addeventhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Create Event"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+            <EditText
+                android:id="@+id/ename"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:hint="Event Name"
+                android:inputType="textCapWords|textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addeventhead" />
+
+            <EditText
+                android:id="@+id/edescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="Event Description"
+                android:inputType="textCapSentences|textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ename" />
+
+            <Button
+                android:id="@+id/edateButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/eventblack"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="selectDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edescription" />
+
+            <TextView
+                android:id="@+id/edate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Select Date"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/edateButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edateButton"
+                app:layout_constraintTop_toTopOf="@+id/edateButton" />
+
+            <Button
+                android:id="@+id/etimeButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:background="@android:drawable/ic_lock_idle_alarm"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="selectTime"
+                app:layout_constraintStart_toStartOf="@+id/edateButton"
+                app:layout_constraintTop_toBottomOf="@+id/edateButton" />
+
+            <TextView
+                android:id="@+id/etime"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Select Time"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etimeButton"
+                app:layout_constraintStart_toStartOf="@+id/edate"
+                app:layout_constraintTop_toTopOf="@+id/etimeButton" />
+
+            <Button
+                android:id="@+id/eplaceButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/mapblack"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="selectLocation"
+                app:layout_constraintStart_toStartOf="@+id/etimeButton"
+                app:layout_constraintTop_toBottomOf="@+id/etimeButton" />
+
+            <TextView
+                android:id="@+id/eplace"
+                android:layout_width="311dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Select Place"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/etime"
+                app:layout_constraintTop_toTopOf="@+id/eplaceButton" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="\n\n\n"
+                android:textColor="@color/cardview_light_background"
+                app:layout_constraintTop_toBottomOf="@+id/eplaceButton"
+                tools:layout_editor_absoluteX="124dp" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/post_event"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="32dp"
+        android:clickable="true"
+        android:onClick="onPost"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/com_facebook_button_like_icon_selected" />
+
+</android.support.constraint.ConstraintLayout>

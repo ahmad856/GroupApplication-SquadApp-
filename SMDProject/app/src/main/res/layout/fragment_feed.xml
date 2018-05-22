@@ -1,0 +1,225 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feedfragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+
+    tools:context="com.smdproject.smdproject.FeedFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Status"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/dpOnPostEdit"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="8dp"
+
+
+                    android:layout_marginTop="4dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9"
+                    app:srcCompat="@drawable/com_facebook_button_icon_blue" />
+
+                <EditText
+                    android:id="@+id/postEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    android:ems="10"
+                    android:focusedByDefault="false"
+                    android:hint="What's on your mind?"
+                    android:inputType="textCapSentences|textMultiLine"
+                    app:layout_constraintEnd_toStartOf="@+id/micPost"
+                    app:layout_constraintStart_toEndOf="@+id/dpOnPostEdit"
+                    app:layout_constraintTop_toTopOf="@+id/dpOnPostEdit" />
+
+                <Button
+                    android:id="@+id/micPost"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@android:drawable/ic_btn_speak_now"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="voicePost"
+                    app:layout_constraintBottom_toBottomOf="@+id/postEditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/postEditText" />
+
+                <Button
+                    android:id="@+id/attachButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_menu_gallery"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="attachStatus"
+                    app:layout_constraintBottom_toBottomOf="@+id/postButton"
+                    app:layout_constraintEnd_toStartOf="@+id/postButton"
+                    app:layout_constraintTop_toTopOf="@+id/postButton" />
+
+                <Button
+                    android:id="@+id/cameraButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_menu_camera"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="cameraStatus"
+                    app:layout_constraintBottom_toBottomOf="@+id/postButton"
+                    app:layout_constraintEnd_toStartOf="@+id/attachButton"
+                    app:layout_constraintTop_toTopOf="@+id/postButton"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <Button
+                    android:id="@+id/postButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="8dp"
+
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_menu_send"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="postStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/postEditText" />
+
+                <ImageView
+                    android:id="@+id/feedAttachThumbnail"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+
+                    android:scaleType="fitCenter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/attachButton" />
+
+                <Button
+                    android:id="@+id/deleteAttachment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="32dp"
+                    android:background="@android:drawable/ic_delete"
+                    android:onClick="deleteAttachment"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/feedAttachThumbnail"
+                    app:layout_constraintTop_toTopOf="@+id/feedAttachThumbnail" />
+
+                <View
+                    android:id="@+id/view"
+                    style="@style/Divider"
+                    android:layout_height="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedAttachThumbnail" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="News Feed"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/feedRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:id="@+id/view2"
+                style="@style/Divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/feedAttachThumbnail" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="End of News Feed.\n\n\n\n"
+                android:textAlignment="center"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/feedAttachThumbnail" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-7909585213116372/4455427282"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
